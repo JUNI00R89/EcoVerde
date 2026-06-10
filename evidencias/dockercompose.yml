@@ -1,0 +1,34 @@
+services:
+
+  web:
+    build: .
+    container_name: ecoverde-web
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - webdata:/usr/share/nginx/html
+
+    networks:
+      - ecoverde-net
+
+  respaldo:
+    image: alpine
+
+    container_name: ecoverde-backup
+
+    command: tail -f /dev/null
+
+    volumes:
+      - webdata:/datos
+
+    networks:
+      - ecoverde-net
+
+volumes:
+  webdata:
+
+networks:
+  ecoverde-net:
+    driver: bridge

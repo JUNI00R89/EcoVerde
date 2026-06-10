@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVerde Antioquia S.A.S. | Excelencia en Espacios Verdes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e7e34;
+            --primary-light: #2e8b57;
+            --primary-dark: #0d5a2f;
+            --accent: #52b788;
+            --accent-light: #74c69d;
+            --dark: #0f1419;
+            --light: #f8fdf9;
+            --gray-1: #e5e5e5;
+            --gray-2: #999;
+            --gray-3: #666;
+            --shadow-1: 0 4px 12px rgba(30, 126, 52, 0.08);
+            --shadow-2: 0 12px 35px rgba(30, 126, 52, 0.15);
+            --shadow-3: 0 25px 60px rgba(30, 126, 52, 0.2);
+            --transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fafbfd 0%, #f0f9f5 100%);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(46, 139, 87, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(82, 183, 136, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ===== HEADER HERO ===== */
+        header {
+            position: relative;
+            overflow: visible;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            will-change: transform;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, #fafbfd 0%, #f0f9f5 100%);
+            clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0 100%);
+            pointer-events: none;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--primary);
+            padding: 16px 40px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            background: var(--light);
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== SECCIONES ===== */
+        section {
+            margin: 100px auto;
+            scroll-behavior: smooth;
+        }
+
+        .section-wrapper {
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 70px;
+            box-shadow: var(--shadow-2);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -1px;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--accent-light));
+            border-radius: 3px;
+            animation: expandWidth 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 150px; }
+        }
+
+        /* ===== SECCIÓN QUIÉNES SOMOS ===== */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .about-text p {
+            font-size: 1.15em;
+            color: var(--gray-3);
+            margin-bottom: 25px;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.08), rgba(82, 183, 136, 0.05));
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            border: 1px solid rgba(82, 183, 136, 0.2);
+            border-left: 5px solid var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .highlight-item:hover {
+            transform: translateX(15px);
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.15), rgba(82, 183, 136, 0.1));
+            box-shadow: var(--shadow-2);
+        }
+
+        .highlight-icon {
+            font-size: 2.5em;
+            flex-shrink: 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .highlight-item h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.15em;
+        }
+
+        .highlight-item p {
+            color: var(--gray-3);
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* ===== SECCIÓN SERVICIOS ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(248, 253, 249, 0.95), rgba(255, 255, 255, 0.6));
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-1);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(46, 139, 87, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-3);
+            border-color: var(--accent);
+        }
+
+        .service-card:hover::before {
+            transform: translate(100px, 100px);
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 4.5em;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--gray-3);
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        /* ===== SECCIÓN ESTADÍSTICAS ===== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            padding: 60px;
+            color: white;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: var(--shadow-3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .stats-section h2 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        /* ===== SECCIÓN VALORES ===== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(248, 253, 249, 0.9), rgba(255, 255, 255, 0.5));
+            padding: 40px;
+            border-radius: 18px;
+            border: 2px solid rgba(46, 139, 87, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(82, 183, 136, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: var(--shadow-2);
+            border-color: var(--accent);
+        }
+
+        .value-card:hover::before {
+            opacity: 1;
+        }
+
+        .value-card h4 {
+            color: var(--primary);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-card p {
+            color: var(--gray-3);
+            font-size: 1em;
+            margin: 0;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== SECCIÓN CONTACTO ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 45px 35px;
+            border-radius: 18px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-2);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-3);
+        }
+
+        .contact-card:hover::before {
+            top: 50%;
+            left: 50%;
+        }
+
+        .contact-card * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .contact-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-card p {
+            font-size: 1.25em;
+            margin: 0;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #1f2937);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid rgba(82, 183, 136, 0.2);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.05em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-accent {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                min-height: 500px;
+                padding: 60px 20px;
+            }
+
+            header h1 {
+                font-size: 2.8em;
+            }
+
+            .section-wrapper {
+                padding: 40px 25px;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 35px 25px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+        }
+
+        /* ===== SCROLLBAR PERSONALIZADO ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(30, 126, 52, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-light), var(--accent-light));
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER HERO -->
+    <header>
+        <h1>🌱 EcoVerde Antioquia</h1>
+        <p class="subtitle">Transformando Espacios, Cuidando Nuestro Planeta</p>
+        <button class="cta-button">Explorar Servicios</button>
+    </header>
+
+    <div class="container">
+        <!-- SECCIÓN QUIÉNES SOMOS -->
+        <section>
+            <div class="section-wrapper">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <div class="about-section">
+                    <div class="about-text">
+                        <p>
+                            Somos <strong>EcoVerde Antioquia S.A.S.</strong>, una empresa de vanguardia comprometida 
+                            con la sostenibilidad ambiental y la transformación de espacios verdes en Antioquia.
+                        </p>
+                        <p>
+                            Con una trayectoria de excelencia, ofrecemos soluciones integrales en mantenimiento de 
+                            áreas verdes, diseño paisajístico innovador y suministro de materiales de construcción de 
+                            calidad premium.
+                        </p>
+                        <p>
+                            Creemos que cada proyecto es una oportunidad para crear espacios que inspiren, 
+                            contribuyan al bienestar y generen impacto ambiental positivo.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">✨</div>
+                            <div>
+                                <h3>Innovación Continua</h3>
+                                <p>Técnicas modernas y sostenibles</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎯</div>
+                            <div>
+                                <h3>Precisión Ejecutiva</h3>
+                                <p>Ejecución impecable de proyectos</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🌍</div>
+                            <div>
+                                <h3>Sostenibilidad Total</h3>
+                                <p>Compromiso con el medio ambiente</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">💚</div>
+                            <div>
+                                <h3>Pasión por Detalles</h3>
+                                <p>Dedicación a cada aspecto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SERVICIOS -->
+        <section>
+            <div class="section-wrapper">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🌿</div>
+                        <h3>Mantenimiento Verde</h3>
+                        <p>Cuidado especializado de jardines, parques y áreas verdes con técnicas ecológicas avanzadas que garantizan belleza y durabilidad sostenible.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>Diseño Paisajístico</h3>
+                        <p>Creamos espacios verdes únicos y personalizados que reflejan tu visión, funcionalidad y armonía perfecta con el entorno natural.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Materiales Premium</h3>
+                        <p>Suministro de materiales de construcción de calidad superior para proyectos que requieren estándares de excelencia garantizados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ESTADÍSTICAS -->
+        <section>
+            <div class="stats-section">
+                <h2>Nuestro Impacto</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Proyectos Realizados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Árboles Plantados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN VALORES -->
+        <section>
+            <div class="section-wrapper">
+                <h2 class="section-title">Nuestros Valores</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h4>♻️ Sostenibilidad</h4>
+                        <p>Prácticas ecológicas que protegen y respetan el medio ambiente en cada proyecto que realizamos.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>⭐ Excelencia</h4>
+                        <p>Calidad superior en cada detalle, garantizando resultados que superan expectativas permanentemente.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>🤝 Confiabilidad</h4>
+                        <p>Compromisos cumplidos, profesionalismo constante y relaciones basadas en la transparencia total.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>🚀 Innovación</h4>
+                        <p>Adopción de tecnologías y métodos nuevos para ofrecer soluciones cada vez más efectivas.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>🌟 Experiencia</h4>
+                        <p>Décadas de conocimiento acumulado transformadas en servicios de clase mundial.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>💼 Profesionalismo</h4>
+                        <p>Equipo altamente capacitado comprometido con la excelencia en cada intervención.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section>
+            <div class="section-wrapper">
+                <h2 class="section-title">Contáctanos</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Correo Electrónico</h3>
+                        <p>contacto@ecoverde.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h3>Teléfono</h3>
+                        <p>300 000 0000</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Ubicación</h3>
+                        <p>Antioquia, Colombia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span class="footer-accent">EcoVerde Antioquia S.A.S.</span> | Transformando espacios, cuidando el futuro 🌍</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para el botón CTA
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            const firstSection = document.querySelector('section');
+            
+            if (ctaButton && firstSection) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    firstSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Efecto parallax suave en header
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    const scrollPosition = window.pageYOffset;
+                    header.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+                });
+            }
+
+            // Animación de números al scroll
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.8s ease-out';
+                observer.observe(section);
+            });
+
+            // Animación de números de estadísticas
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsSection = document.querySelector('.stats-section');
+            
+            if (statsSection) {
+                const statsObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !entry.target.dataset.counted) {
+                            entry.target.dataset.counted = 'true';
+                            animateNumbers();
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                statsObserver.observe(statsSection);
+            }
+
+            function animateNumbers() {
+                statNumbers.forEach(stat => {
+                    const finalValue = stat.textContent;
+                    const numericValue = parseInt(finalValue.replace(/\D/g, ''));
+                    let currentValue = 0;
+                    const increment = Math.ceil(numericValue / 60);
+
+                    const counter = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numericValue) {
+                            stat.textContent = finalValue;
+                            clearInterval(counter);
+                        } else {
+                            stat.textContent = currentValue + (finalValue.includes('%') ? '%' : finalValue.includes('+') ? '+' : '');
+                        }
+                    }, 30);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
